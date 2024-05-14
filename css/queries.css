@@ -1,0 +1,326 @@
+/* rem and em DO NOT depend on the html font-size in media-queries! Instead 1 rem = 1 em = 16px */
+
+/*************************************/
+/*BELOW 1344px (SMALLER DESKTOPS)*/
+/*************************************/
+/* 
+@media (max-width: 90em) {
+  .hero {
+    max-width: 120rem;
+  }
+
+  .heading-primary {
+    font-size: 3rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+} */
+
+/*************************************/
+/*BELOW 768px (TABLETS)*/
+/*************************************/
+@media (max-width: 75em) {
+  html {
+    /* font-size: 10px */
+    /* 10px/16px = 0.625 = 62.5% */
+    /* Percentage of user's browser font-size setting */
+    font-size: 50%;
+  }
+
+  .container {
+    margin: 0 5rem;
+  }
+
+  .hero {
+    margin: 0 5rem;
+  }
+
+  .grid {
+    row-gap: 3.2rem;
+    column-gap: 3.2rem;
+  }
+
+  .heading-secondary {
+    font-size: 3rem;
+  }
+
+  .heading-tertiary {
+    font-size: 2rem;
+  }
+
+  .header {
+    padding: 0 3.2rem;
+  }
+
+  .main-nav-list {
+    gap: 3.2rem;
+  }
+
+  .hero {
+    gap: 3.2rem;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 47em) {
+  html {
+    /* font-size: 10px */
+    /* 10px/16px = 0.625 = 62.5% */
+    /* Percentage of user's browser font-size setting */
+    font-size: 40%;
+  }
+
+  .container {
+    margin: 0 3rem;
+  }
+
+  .hero {
+    margin: 0 3rem;
+  }
+
+  .pricing-plan {
+    width: 90%;
+  }
+}
+
+@media (max-width: 35em) {
+  .main-nav-list {
+    gap: 1.2rem;
+  }
+  .step-number {
+    font-size: 4.8rem;
+  }
+
+  .section-testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .cta {
+    /*3/5 = 60% +2/5 = 40%*/
+    grid-template-columns: 3fr 2fr;
+  }
+
+  .cta-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* MOBILE NAVIGATION */
+
+  .btn-mobile-nav {
+    display: block;
+    z-index: 9999;
+  }
+
+  .main-nav {
+    background-color: rgba(255, 255, 255, 0.7);
+    -webkit-backdrop-filter: blur(
+      5px
+    ); /* WEBKIT PREFIX WE USE FOR SAFARI AND GOOGLE-CHROME */
+    backdrop-filter: blur(10px);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    transform: translateX(100%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.5s ease-in;
+
+    /* Hide-Navigation */
+    /* Allows no transition at all */
+    /* display: none; */
+
+    /* 1.) Hide it Visually*/
+    opacity: 0;
+
+    /* 2.) Make it unaccesible to mouse and keyboard*/
+    pointer-events: none;
+
+    /* 3.) Hide it from screen readers*/
+    visibility: hidden;
+  }
+
+  .nav-open .main-nav {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+
+  .nav-open .icon-mobile-nav[name="close-outline"] {
+    display: block;
+  }
+
+  .nav-open .icon-mobile-nav[name="menu-outline"] {
+    display: none;
+  }
+
+  .main-nav-list {
+    flex-direction: column;
+  }
+
+  .main-nav-link:link,
+  .main-nav-link:visited {
+    font-size: 2rem;
+  }
+}
+
+/*************************************/
+/*BELOW 500px (MOBILES)*/
+/*************************************/
+@media (max-width: 32em) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding: 0 6rem;
+    gap: 6.4rem;
+  }
+
+  .hero-img {
+    max-width: 70%;
+  }
+
+  .hero-text-box,
+  .hero-img-box {
+    text-align: center;
+  }
+
+  .delivered-meals {
+    justify-content: center;
+    margin-top: 3.4rem;
+  }
+
+  .logos img {
+    height: 1.6rem;
+  }
+
+  .grid--3--cols,
+  .grid--4--cols {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .diets {
+    grid-column: 1 / -1;
+    justify-self: center;
+  }
+
+  .section-pricing .grid--2--cols {
+    grid-template-columns: 1fr;
+  }
+
+  .pricing-plan {
+    justify-self: center;
+  }
+
+  .pricing-plan--complete::after {
+    right: -15%;
+  }
+
+  .pricing-plan {
+    width: 80%;
+  }
+
+  .grid-footer {
+    grid-template-columns: repeat(6, 1fr);
+  }
+
+  .logo-col,
+  .address-col {
+    grid-column: span 3;
+  }
+
+  .nav-col {
+    grid-row: 1;
+    grid-column: span 2;
+    margin-bottom: 3.2rem;
+  }
+
+  .cta {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-text-box {
+    padding: 3.2rem;
+  }
+
+  .cta-img-box {
+    height: 32rem;
+    grid-row: 1;
+  }
+}
+
+/*************************************/
+/*BELOW 320px (SMALLER-MOBILES)*/
+/*************************************/
+
+@media (max-width: 20em) {
+  .grid--2--cols,
+  .grid--3--cols,
+  .grid--4--cols {
+    grid-template-columns: 1fr;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    padding: 2.2rem 3.2rem;
+  }
+
+  .btn,
+  .btn:link,
+  .btn:visited {
+    font-size: 1.6rem;
+  }
+
+  .hero-img {
+    max-width: 80%;
+  }
+
+  .section-hero {
+    padding: 2.4rem 0 6.4rem 0;
+  }
+
+  .hero {
+    padding: 0 3.2rem;
+  }
+
+  .logos img {
+    height: 1.2rem;
+  }
+
+  .step-img-box:nth-child(2) {
+    grid-row: 1;
+  }
+
+  .step-img-box:nth-child(6) {
+    grid-row: 5;
+  }
+
+  .step-img-box {
+    transform: translateY(2.4rem);
+  }
+
+  .pricing-plan {
+    width: 90%;
+  }
+
+  .testimonials {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.2rem;
+  }
+}
